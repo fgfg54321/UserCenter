@@ -1,0 +1,119 @@
+创建 bundle
+php app/console generate:bundle
+
+Bundle namespace: Symfony/Bundle/SampleBundle
+Bundle name [SymfonySampleBundle]:
+Target directory [/home/saharabear/workspace/symfony-sample/src]:
+Configuration format (yml, xml, php, or annotation): yml
+Do you want to generate the whole directory structure [no]? yes
+Do you confirm generation [yes]? yes
+Generating the bundle code: OK
+Checking that the bundle is autoloaded: OK
+Confirm automatic update of your Kernel [yes]? yes
+Enabling the bundle inside the Kernel: OK
+Confirm automatic update of the Routing [yes]? yes
+
+
+
+
+创建实体
+php app/console generate:doctrine:entity
+
+Welcome to the Doctrine2 entity generator
+
+This command helps you generate Doctrine2 entities.
+
+First, you need to give the entity name you want to generate.
+You must use the shortcut notation like AcmeBlogBundle:Post.
+The Entity shortcut name: SymfonySampleBundle:Article
+
+Determine the format to use for the mapping information.
+
+Configuration format (yml, xml, php, or annotation) [annotation]:yml
+Instead of starting with a blank entity, you can add some fields now.
+Note that the primary key will be added automatically (named id).
+
+Available types: array, simple_array, json_array, object,
+boolean, integer, smallint, bigint, string, text, datetime, datetimetz,
+date, time, decimal, float, blob, guid.
+
+New field name (press  to stop adding fields): title
+Field type [string]:
+Field length [255]: 200
+
+New field name (press  to stop adding fields): content
+Field type [string]: text
+
+New field name (press  to stop adding fields): author
+Field type [string]:
+Field length [255]: 20
+
+New field name (press  to stop adding fields):
+
+Do you want to generate an empty repository class [no]? yes
+
+Summary before generation
+
+You are going to generate a "SymfonySampleBundle:Article" Doctrine2 entity
+using the "yml" format.
+
+Do you confirm generation [yes]? yes
+
+Entity generation
+
+Generating the entity code: OK
+
+You can now start using the generated code!
+
+
+
+更新数据库
+php app/console doctrine:schema:update --force
+
+
+
+
+生成关联数据库操作Action
+php app/console generate:doctrine:crud
+
+ Welcome to the Doctrine2 CRUD generator
+
+This command helps you generate CRUD controllers and templates.
+
+First, you need to give the entity for which you want to generate a CRUD.
+You can give an entity that does not exist yet and the wizard will help
+you defining it.
+
+You must use the shortcut notation like AcmeBlogBundle:Post.
+
+The Entity shortcut name: SymfonySampleBundle:Article
+
+By default, the generator creates two actions: list and show.
+You can also ask it to generate "write" actions: new, update, and delete.
+
+Do you want to generate the "write" actions [no]? yes
+
+Determine the format to use for the generated CRUD.
+
+Configuration format (yml, xml, php, or annotation) [annotation]: yml
+Determine the routes prefix (all the routes will be "mounted" under this
+prefix: /prefix/, /prefix/new, ...).
+
+Routes prefix [/article]: /article
+
+  Summary before generation
+
+You are going to generate a CRUD controller for "SymfonySampleBundle:Article"
+using the "yml" format.
+
+Do you confirm generation [yes]? yes
+
+  CRUD generation
+
+Generating the CRUD code: OK
+Generating the Form code: OK
+
+  You can now start using the generated code!
+
+发布和调试环境切换
+./app/console --env=prod cache:clear
