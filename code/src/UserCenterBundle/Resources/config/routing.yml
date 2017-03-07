@@ -1,0 +1,7 @@
+user_center_userinfo:
+    resource: "@UserCenterBundle/Resources/config/routing/userinfo.yml"
+    prefix:   /userinfo
+
+user_center_homepage:
+    path:     /
+    defaults: { _controller: UserCenterBundle:Default:index }

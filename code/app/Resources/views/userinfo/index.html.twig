@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Userinfos list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Uid</th>
+                <th>Name</th>
+                <th>Account</th>
+                <th>Password</th>
+                <th>Registerdate</th>
+                <th>Lastlogin</th>
+                <th>Deadline</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for userInfo in userInfos %}
+            <tr>
+                <td><a href="{{ path('userinfo_show', { 'id': userInfo.id }) }}">{{ userInfo.id }}</a></td>
+                <td>{{ userInfo.uid }}</td>
+                <td>{{ userInfo.name }}</td>
+                <td>{{ userInfo.account }}</td>
+                <td>{{ userInfo.password }}</td>
+                <td>{{ userInfo.registerDate }}</td>
+                <td>{{ userInfo.lastLogin }}</td>
+                <td>{{ userInfo.deadline }}</td>
+                <td>{{ userInfo.status }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('userinfo_show', { 'id': userInfo.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('userinfo_edit', { 'id': userInfo.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('userinfo_new') }}">Create a new userInfo</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,37 @@
+UserCenterBundle\Entity\UserInfo:
+    type: entity
+    table: null
+    repositoryClass: UserCenterBundle\Repository\UserInfoRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        uid:
+            type: bigint
+            unique: true
+        name:
+            type: string
+            length: 255
+            unique: true
+        account:
+            type: string
+            length: 255
+            unique: true
+        password:
+            type: string
+            length: 255
+        registerDate:
+            type: string
+            length: 255
+        lastLogin:
+            type: string
+            length: 255
+        deadline:
+            type: string
+            length: 255
+        status:
+            type: text
+    lifecycleCallbacks: {  }

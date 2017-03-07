@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Userinfo</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ userInfo.id }}</td>
+            </tr>
+            <tr>
+                <th>Uid</th>
+                <td>{{ userInfo.uid }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ userInfo.name }}</td>
+            </tr>
+            <tr>
+                <th>Account</th>
+                <td>{{ userInfo.account }}</td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td>{{ userInfo.password }}</td>
+            </tr>
+            <tr>
+                <th>Registerdate</th>
+                <td>{{ userInfo.registerDate }}</td>
+            </tr>
+            <tr>
+                <th>Lastlogin</th>
+                <td>{{ userInfo.lastLogin }}</td>
+            </tr>
+            <tr>
+                <th>Deadline</th>
+                <td>{{ userInfo.deadline }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ userInfo.status }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('userinfo_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('userinfo_edit', { 'id': userInfo.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

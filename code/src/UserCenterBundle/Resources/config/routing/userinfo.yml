@@ -1,0 +1,34 @@
+userinfo_index:
+    path:     /
+    defaults: { _controller: "UserCenterBundle:UserInfo:index" }
+    methods:  GET
+
+userinfo_show:
+    path:     /{id}/show
+    defaults: { _controller: "UserCenterBundle:UserInfo:show" }
+    methods:  GET
+
+userinfo_new:
+    path:     /new
+    defaults: { _controller: "UserCenterBundle:UserInfo:new" }
+    methods:  [GET, POST]
+
+userinfo_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "UserCenterBundle:UserInfo:edit" }
+    methods:  [GET, POST]
+
+userinfo_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "UserCenterBundle:UserInfo:delete" }
+    methods:  DELETE
+
+userinfo_login:
+    path:     /
+    defaults: { _controller: "UserCenterBundle:UserInfo:login" }
+    methods:  GET
+
+userinfo_register:
+    path:     /
+    defaults: { _controller: "UserCenterBundle:UserInfo:register" }
+    methods:  GET
