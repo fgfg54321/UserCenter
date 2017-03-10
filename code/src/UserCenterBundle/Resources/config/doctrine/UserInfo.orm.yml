@@ -4,14 +4,11 @@ UserCenterBundle\Entity\UserInfo:
     repositoryClass: UserCenterBundle\Repository\UserInfoRepository
     id:
         id:
-            type: integer
+            type: bigint
             id: true
             generator:
                 strategy: AUTO
     fields:
-        uid:
-            type: bigint
-            unique: true
         name:
             type: string
             length: 255
@@ -33,5 +30,7 @@ UserCenterBundle\Entity\UserInfo:
             type: string
             length: 255
         status:
+            type: text
+        token:
             type: text
     lifecycleCallbacks: {  }

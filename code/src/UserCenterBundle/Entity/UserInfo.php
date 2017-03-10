@@ -15,11 +15,6 @@ class UserInfo
     private $id;
 
     /**
-     * @var int
-     */
-    private $uid;
-
-    /**
      * @var string
      */
     private $name;
@@ -54,6 +49,11 @@ class UserInfo
      */
     private $status;
 
+    /*
+     * @var token
+     */
+    private $token;
+
     /**
      * Get id
      *
@@ -62,29 +62,6 @@ class UserInfo
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set uid
-     *
-     * @param integer $uid
-     * @return UserInfo
-     */
-    public function setUid($uid)
-    {
-        $this->uid = $uid;
-
-        return $this;
-    }
-
-    /**
-     * Get uid
-     *
-     * @return integer 
-     */
-    public function getUid()
-    {
-        return $this->uid;
     }
 
     /**
@@ -246,5 +223,29 @@ class UserInfo
     public function getStatus()
     {
         return $this->status;
+    }
+
+
+    /**
+     * Set token
+     *
+     * @param string $status
+     * @return UserInfo
+     */
+    public function setToken($token)
+    {
+        $this->token = $token;
+
+        return $this;
+    }
+
+    /**
+     * Get token
+     *
+     * @return string
+     */
+    public function getToken()
+    {
+        return $this->token;
     }
 }

@@ -24,11 +24,16 @@ userinfo_delete:
     methods:  DELETE
 
 userinfo_login:
-    path:     /
+    path:     /login
     defaults: { _controller: "UserCenterBundle:UserInfo:login" }
     methods:  GET
 
 userinfo_register:
-    path:     /
+    path:     /register
     defaults: { _controller: "UserCenterBundle:UserInfo:register" }
+    methods:  GET
+
+userinfo_check:
+    path:     /check
+    defaults: { _controller: "UserCenterBundle:UserInfo:check" }
     methods:  GET
