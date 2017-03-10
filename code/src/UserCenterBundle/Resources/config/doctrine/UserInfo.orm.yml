@@ -33,4 +33,7 @@ UserCenterBundle\Entity\UserInfo:
             type: text
         token:
             type: text
+        productName:
+            type: string
+            length: 255
     lifecycleCallbacks: {  }

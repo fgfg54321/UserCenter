@@ -85,9 +85,10 @@ class UserInfoController extends Controller
      */
     public function registerAction(Request $request)
     {
-        $account  = $request->query->get('account');
-        $password = $request->query->get('password');
-        $name     = $request->query->get('name');
+        $account     = $request->query->get('account');
+        $password    = $request->query->get('password');
+        $name        = $request->query->get('name');
+        $productName = $request->query->get('productName','test');
 
         if($account != null && $password != null && $name != null)
         {
@@ -108,8 +109,8 @@ class UserInfoController extends Controller
                 $userInfo->setAccount($account);
                 $userInfo->setName($name);
                 $userInfo->setPassword(md5($password));
-                $userInfo->setStatus("[]");
                 $userInfo->setRegisterDate(time());
+                $userInfo->setProductName($productName);
 
                 $em->persist($userInfo);
                 $em->flush($userInfo);
@@ -352,7 +353,8 @@ class LoginState
             $deadline                          = $userInfo->getDeadline();
             $status                            = $userInfo->getStatus();
             $regDate                           = $userInfo->getRegisterDate();
-            $tokenStr                          = $userInfo->getToken();
+            $tokenstr                          = $userInfo->getToken();
+            $productName                       = $userInfo->getProductName();
 
             $this->data['id']                = $id;
             $this->data['account']           = $account;
@@ -361,7 +363,8 @@ class LoginState
             $this->data['lastLogin']         = date('Y-m-d H:i:s',$logintime);
             $this->data['deadline']          = date('Y-m-d H:i:s',$deadline);
             $this->data['status']            = $status;
-            $this->data['token']             =  $tokenStr;
+            $this->data['token']             = $tokenstr;
+            $this->data['productNmae']      = $productName;
 
         }
         else
@@ -398,6 +401,7 @@ class RegisterState
             $this->data['name']             = $userInfo->getName();
             $this->data['registerDate']   = $userInfo->getRegisterDate();
             $this->data['status']          = $userInfo->getStatus();
+            $this->data['productNmae']    = $userInfo->getProductName();
         }
         else
         {
@@ -432,6 +436,7 @@ class CheckState
             $deadline                          = $userInfo->getDeadline();
             $status                            = $userInfo->getStatus();
             $regDate                           = $userInfo->getRegisterDate();
+            $productName                       = $userInfo->getProductName();
 
             $this->data['id']                = $id;
             $this->data['account']           = $account;
@@ -440,6 +445,7 @@ class CheckState
             $this->data['lastLogin']         = date('Y-m-d H:i:s',$logintime);
             $this->data['deadline']          = date('Y-m-d H:i:s',$deadline);
             $this->data['status']            = $status;
+            $this->data['productNmae']      = $productName;
         }
         else
         {

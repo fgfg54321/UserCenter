@@ -47,12 +47,17 @@ class UserInfo
     /**
      * @var string
      */
-    private $status;
+    private $status = "[]";
 
     /*
      * @var token
      */
     private $token;
+
+    /*
+     * product name
+     */
+    private $productName = 'test';
 
     /**
      * Get id
@@ -248,4 +253,28 @@ class UserInfo
     {
         return $this->token;
     }
+
+    /**
+     * Set product name
+     *
+     * @param string $productionName
+     * @return UserInfo
+     */
+    public function setProductName($productName)
+    {
+        $this->productName = $productName;
+
+        return $this;
+    }
+
+    /**
+     * Get product name
+     *
+     * @return string
+     */
+    public function getProductName()
+    {
+        return $this->productName;
+    }
+
 }
